@@ -16,3 +16,7 @@
 
 <h2 align="left">UPDATE(v1.1)</h2>
 <h3 align="left">Added Simple movement animation, Camera look, Enhanced Input system, GAS(To spawn Axe and sword for combat)</h3>
+
+
+https://github.com/user-attachments/assets/18082d66-c484-428f-a5e0-eec8eb67815b
+

@@ -16,3 +16,4 @@
 
 <h2 align="left">UPDATE(v1.1)</h2>
 <h3 align="left">Added Simple movement animation, Camera look, Enhanced Input system, GAS(To spawn Axe and sword for combat)</h3>
+![KW_Dev1-1](https://github.com/user-attachments/assets/7c0ed43d-6fd7-40c9-804e-3521a55751b4)

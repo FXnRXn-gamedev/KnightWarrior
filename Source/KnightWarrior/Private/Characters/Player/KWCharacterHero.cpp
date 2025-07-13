@@ -7,8 +7,11 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "KWDebugHelper.h"
 #include "DataAssets/Input/DataAsset_KWInputConfig.h"
 #include "Components/Input/KWInputComponent.h"
+#include "abilitysystem/KWAbilitySystemComponent.h"
+#include "DataAssets/StartUpData/DataAsset_HeroStartUpData.h"
 #include "KWGameplayTags.h"
 
 AKWCharacterHero::AKWCharacterHero()
@@ -33,6 +36,18 @@ AKWCharacterHero::AKWCharacterHero()
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+}
+
+void AKWCharacterHero::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+	if (!CharacterStartUpData.IsNull())
+	{
+		if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartUpData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(KWAbilitySystemComponent, 1);
+		}
+	}
 }
 
 void AKWCharacterHero::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

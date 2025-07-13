@@ -17,6 +17,9 @@ class KNIGHTWARRIOR_API AKWCharacterHero : public AKWCharacterBase
 public:
 	AKWCharacterHero();
 protected:
+	//~Begin Pawn Interface
+	virtual void PossessedBy(AController* NewController) override;
+	//~END Pawn Interface
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay() override;
 

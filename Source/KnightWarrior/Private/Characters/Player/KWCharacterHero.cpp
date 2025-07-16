@@ -7,11 +7,11 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
-#include "KWDebugHelper.h"
 #include "DataAssets/Input/DataAsset_KWInputConfig.h"
 #include "Components/Input/KWInputComponent.h"
-#include "abilitysystem/KWAbilitySystemComponent.h"
+#include "AbilitySystem/KWAbilitySystemComponent.h"
 #include "DataAssets/StartUpData/DataAsset_HeroStartUpData.h"
+#include "Components/Combat/KWHeroCombatComponent.h"
 #include "KWGameplayTags.h"
 
 AKWCharacterHero::AKWCharacterHero()
@@ -36,6 +36,9 @@ AKWCharacterHero::AKWCharacterHero()
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+
+
+	HeroCombatComponent = CreateDefaultSubobject<UKWHeroCombatComponent>(TEXT("HeroCombatComponent"));
 }
 
 void AKWCharacterHero::PossessedBy(AController* NewController)
@@ -64,11 +67,9 @@ void AKWCharacterHero::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	KWInputComponent->BindNativeInputAction(InputConfigDataAsset, KWGameplayTags::InputTag_Move, ETriggerEvent::Triggered, this, &AKWCharacterHero::Input_Move);
 	KWInputComponent->BindNativeInputAction(InputConfigDataAsset, KWGameplayTags::InputTag_Look, ETriggerEvent::Triggered, this, &AKWCharacterHero::Input_Look);
-}
 
-void AKWCharacterHero::BeginPlay()
-{
-	Super::BeginPlay();
+	KWInputComponent->BindAbilityInputAction(InputConfigDataAsset, this, &ThisClass::Input_AbilityInputPressed, &ThisClass::Input_AbilityInputReleased);
+	
 }
 
 void AKWCharacterHero::Input_Move(const FInputActionValue& Value)
@@ -103,3 +104,15 @@ void AKWCharacterHero::Input_Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+void AKWCharacterHero::Input_AbilityInputPressed(FGameplayTag InInputTag)
+{
+	KWAbilitySystemComponent->OnAbilityInputPressed(InInputTag);
+}
+
+void AKWCharacterHero::Input_AbilityInputReleased(FGameplayTag InInputTag)
+{
+	KWAbilitySystemComponent->OnAbilityInputReleased(InInputTag);
+}
+
+

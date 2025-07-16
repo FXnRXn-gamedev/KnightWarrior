@@ -18,11 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://3" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/KnightWarrior/Private/Components/Input/KWInputComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/KnightWarrior/Private/DataAssets/Input/DataAsset_KWInputConfig.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/KnightWarrior/Public/Components/Input/KWInputComponent.h" root0="FORCE_HIGHLIGHTING" />
@@ -46,6 +42,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -138,6 +135,11 @@
       <workItem from="1752319671385" duration="530000" />
       <workItem from="1752320245694" duration="3844000" />
       <workItem from="1752371729402" duration="12685000" />
+      <workItem from="1752399357975" duration="3306000" />
+      <workItem from="1752453308634" duration="11865000" />
+      <workItem from="1752473642057" duration="5036000" />
+      <workItem from="1752486075760" duration="4015000" />
+      <workItem from="1752629094595" duration="7054000" />
     </task>
     <servers />
   </component>

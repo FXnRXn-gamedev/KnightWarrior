@@ -6,6 +6,9 @@
 #include "Abilities/GameplayAbility.h"
 #include "KWGameplayAbility.generated.h"
 
+class UPawnCombatComponent;
+class UKWAbilitySystemComponent;
+
 UENUM(BlueprintType)
 enum class EKWAbilityActivationPolicyType : uint8
 {
@@ -28,5 +31,12 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly, Category="--- KW Ability ---")
 	EKWAbilityActivationPolicyType AbilityActivationPolicyType = EKWAbilityActivationPolicyType::OnTriggered;
-	
+
+	UFUNCTION(BlueprintPure, Category = "--- KW  ---|Ability")
+	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
+	//~
+
+	UFUNCTION(BlueprintPure, Category = "--- KW  ---|Ability")
+	UKWAbilitySystemComponent* GetKWAbilitySystemComponentFromActorInfo() const;
+	//~
 };

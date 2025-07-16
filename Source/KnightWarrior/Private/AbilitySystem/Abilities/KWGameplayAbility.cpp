@@ -3,6 +3,8 @@
 
 #include "AbilitySystem/Abilities/KWGameplayAbility.h"
 #include "AbilitySystem/KWAbilitySystemComponent.h"
+#include "Components/Combat/PawnCombatComponent.h"
+
 void UKWGameplayAbility::OnGiveAbility(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
 {
 	Super::OnGiveAbility(ActorInfo, Spec);
@@ -28,4 +30,14 @@ void UKWGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, con
 	}
 	
 	
+}
+
+UPawnCombatComponent* UKWGameplayAbility::GetPawnCombatComponentFromActorInfo() const
+{
+	return GetAvatarActorFromActorInfo()->FindComponentByClass<UPawnCombatComponent>();
+}
+
+UKWAbilitySystemComponent* UKWGameplayAbility::GetKWAbilitySystemComponentFromActorInfo() const
+{
+	return Cast<UKWAbilitySystemComponent>(CurrentActorInfo->AbilitySystemComponent);
 }

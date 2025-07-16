@@ -4,9 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Characters/Player/KWCharacterBase.h"
+#include "GameplayTagContainer.h"
 #include "KWCharacterHero.generated.h"
 
+class UKWHeroCombatComponent;
 struct FInputActionValue;
+
 /**
  * 
  */
@@ -21,9 +24,6 @@ protected:
 	virtual void PossessedBy(AController* NewController) override;
 	//~END Pawn Interface
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
-	virtual void BeginPlay() override;
-
-
 
 private:
 #pragma region Components
@@ -34,6 +34,9 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "--- Camera ---", meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "--- Combat ---", meta = (AllowPrivateAccess = "true"))
+	UKWHeroCombatComponent* HeroCombatComponent;
+
 #pragma endregion
 
 #pragma region Inputs
@@ -43,7 +46,13 @@ private:
 
 	void Input_Move(const FInputActionValue& Value);
 	void Input_Look(const FInputActionValue& Value);
+
+	void Input_AbilityInputPressed(FGameplayTag InInputTag);
+	void Input_AbilityInputReleased(FGameplayTag InInputTag);
 #pragma endregion
-	
+
+
+public:
+	FORCEINLINE UKWHeroCombatComponent* GetHeroCombatComponent() const { return HeroCombatComponent; }
 };
 

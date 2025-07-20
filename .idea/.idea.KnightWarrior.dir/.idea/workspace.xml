@@ -17,6 +17,9 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Game/UE_5.5/Engine/Source/Runtime/Engine/Classes/Animation/AnimInstance.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/KnightWarrior/Private/Components/Input/KWInputComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/KnightWarrior/Private/DataAssets/Input/DataAsset_KWInputConfig.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -139,7 +142,11 @@
       <workItem from="1752473642057" duration="5036000" />
       <workItem from="1752486075760" duration="4015000" />
       <workItem from="1752629094595" duration="7054000" />
-      <workItem from="1752724468187" duration="6838000" />
+      <workItem from="1752724468187" duration="9659000" />
+      <workItem from="1752751834543" duration="2420000" />
+      <workItem from="1752805822079" duration="3892000" />
+      <workItem from="1752973231216" duration="11000" />
+      <workItem from="1752973302792" duration="2322000" />
     </task>
     <servers />
   </component>

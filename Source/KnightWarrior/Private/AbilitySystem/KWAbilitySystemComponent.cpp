@@ -2,6 +2,9 @@
 
 
 #include "AbilitySystem/KWAbilitySystemComponent.h"
+#include "AbilitySystem/Abilities/KWGameplayAbility.h"
+
+#include "InputBehavior.h"
 
 void UKWAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInputTag)
 {
@@ -9,7 +12,7 @@ void UKWAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInpu
 
 	for (const FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (!AbilitySpec.DynamicAbilityTags.HasTagExact(InInputTag)) continue;
+		if (!AbilitySpec.GetDynamicSpecSourceTags().HasTagExact(InInputTag)) continue;
 
 		TryActivateAbility(AbilitySpec.Handle);
 	}
@@ -18,4 +21,36 @@ void UKWAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInpu
 void UKWAbilitySystemComponent::OnAbilityInputReleased(const FGameplayTag& InInputTag)
 {
 	if (!InInputTag.IsValid()) return;
+}
+
+void UKWAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FKWHeroAbilitySet>& InDefaultWeaponAbilities,
+	int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitiySpecHandle)
+{
+	if (InDefaultWeaponAbilities.IsEmpty()) return;
+
+	for (const FKWHeroAbilitySet& AbilitySet: InDefaultWeaponAbilities)
+	{
+		if (!AbilitySet.IsValid()) continue;
+		
+		FGameplayAbilitySpec AbilitySpec(AbilitySet.AbilityToGrant);
+		AbilitySpec.SourceObject = GetAvatarActor();
+		AbilitySpec.Level = ApplyLevel;
+		AbilitySpec.GetDynamicSpecSourceTags().AddTag(AbilitySet.InputTag);
+		
+		OutGrantedAbilitiySpecHandle.AddUnique(GiveAbility(AbilitySpec));
+	}
+}
+
+void UKWAbilitySystemComponent::RemoveGrantedHeroWeaponAbilities(
+	TArray<FGameplayAbilitySpecHandle>& InSpecHandlesToRemove)
+{
+	if (InSpecHandlesToRemove.IsEmpty()) return;
+	for (FGameplayAbilitySpecHandle& SpecHandle : InSpecHandlesToRemove)
+	{
+		if (SpecHandle.IsValid())
+		{
+			ClearAbility(SpecHandle);
+		}
+	}
+	InSpecHandlesToRemove.Empty();
 }

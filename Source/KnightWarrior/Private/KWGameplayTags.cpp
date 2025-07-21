@@ -13,7 +13,10 @@ namespace KWGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Unequip_Axe, "KnightWarrior.InputTag.UnequipAxe");
 	UE_DEFINE_GAMEPLAY_TAG(Equip_Sword, "KnightWarrior.InputTag.EquipSword");
 	UE_DEFINE_GAMEPLAY_TAG(Unequip_Sword, "KnightWarrior.InputTag.UnequipSword");
-	
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_LightAttack_Axe, "KnightWarrior.InputTag.LightAttack.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_LightAttack_Sword, "KnightWarrior.InputTag.LightAttack.Sword");
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_HeavyAttack_Axe, "KnightWarrior.InputTag.HeavyAttack.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_HeavyAttack_Sword, "KnightWarrior.InputTag.HeavyAttack.Sword");
 	
 	
 	//--  Player Tags  --
@@ -25,6 +28,11 @@ namespace KWGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Unequip_Axe, "KnightWarrior.Player.Ability.UnEquip.Axe");
 	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Equip_Sword, "KnightWarrior.Player.Ability.Equip.Sword");
 	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Unequip_Sword, "KnightWarrior.Player.Ability.UnEquip.Sword");
+
+	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Light_Axe, "KnightWarrior.Player.Ability.Attack.Light.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Heavy_Axe, "KnightWarrior.Player.Ability.Attack.Heavy.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Light_Sword, "KnightWarrior.Player.Ability.Attack.Light.Sword");
+	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Heavy_Sword, "KnightWarrior.Player.Ability.Attack.Heavy.Sword");
 
 
 	//--  Event  --
